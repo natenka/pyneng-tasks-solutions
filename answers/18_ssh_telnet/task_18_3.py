@@ -11,7 +11,7 @@ command = "sh ip int br"
 
 def send_commands(device, *, config=None, show=None):
     if show and config:
-        raise ValueError("Можно передавать только один из аргументов show/config")
+        raise ValueError("Only one of the show/config arguments can be passed")
     elif show:
         return send_show_command(device, show)
     elif config:

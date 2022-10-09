@@ -4,7 +4,6 @@ import re
 from netmiko import ConnectHandler
 import yaml
 
-# списки команд с ошибками и без:
 commands_with_errors = ["logging 0255.255.1", "logging", "i"]
 correct_commands = ["logging buffered 20010", "ip http server"]
 commands = commands_with_errors + correct_commands
@@ -13,11 +12,11 @@ commands = commands_with_errors + correct_commands
 def send_config_commands(device, config_commands, log=True):
     good_commands = {}
     bad_commands = {}
-    error_message = 'Команда "{}" выполнилась с ошибкой "{}" на устройстве {}'
+    error_message = 'The "{}" command was executed with the error "{}" on the device {}'
     regex = "% (?P<errmsg>.+)"
 
     if log:
-        print("Подключаюсь к {}...".format(device["host"]))
+        print("Connecting to {}...".format(device["host"]))
     with ConnectHandler(**device) as ssh:
         ssh.enable()
         for command in config_commands:
