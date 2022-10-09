@@ -2,6 +2,7 @@
 
 import re
 
+
 def get_ip_from_cfg(config):
     with open(config) as f:
         regex = re.compile(

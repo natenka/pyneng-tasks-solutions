@@ -5,8 +5,10 @@ import re
 
 def get_ip_from_cfg(filename):
     result = {}
-    regex = (r"^interface (?P<intf>\S+)"
-             r"|address (?P<ip>\S+) (?P<mask>\S+)")
+    regex = (
+        r"^interface (?P<intf>\S+)"
+        r"|address (?P<ip>\S+) (?P<mask>\S+)"
+    )
 
     with open(filename) as f:
         for line in f:
@@ -20,12 +22,12 @@ def get_ip_from_cfg(filename):
     return result
 
 
-# еще один вариант решения
+# second version
 
 def get_ip_from_cfg(filename):
     result = {}
     with open(filename) as f:
-        # сначала отбираем нужные куски конфигурации
+        # first we select pieces of the configuration
         match = re.finditer(
             "interface (\S+)\n"
             "(?: .*\n)*"
@@ -33,7 +35,7 @@ def get_ip_from_cfg(filename):
             "( ip address \S+ \S+ secondary\n)*",
             f.read(),
         )
-        # потом в этих частях находим все IP-адреса
+        # then in these parts we find all the IP addresses
         for m in match:
             result[m.group(1)] = re.findall("ip address (\S+) (\S+)", m.group())
     return result
