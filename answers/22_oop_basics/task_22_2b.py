@@ -1,45 +1,6 @@
 # -*- coding: utf-8 -*-
 
-"""
-Задание 22.2b
 
-Скопировать класс CiscoTelnet из задания 22.2a и добавить метод send_config_commands.
-
-
-Метод send_config_commands должен уметь отправлять одну команду конфигурационного
-режима и список команд.
-Метод должен возвращать вывод аналогичный методу send_config_set у netmiko
-(пример вывода ниже).
-
-Пример создания экземпляра класса:
-In [1]: from task_22_2b import CiscoTelnet
-
-In [2]: r1_params = {
-   ...:     'ip': '192.168.100.1',
-   ...:     'username': 'cisco',
-   ...:     'password': 'cisco',
-   ...:     'secret': 'cisco'}
-
-In [3]: r1 = CiscoTelnet(**r1_params)
-
-Использование метода send_config_commands:
-
-In [5]: r1.send_config_commands('logging 10.1.1.1')
-Out[5]: 'conf t
-Enter configuration commands, one per line.  End with CNTL/Z.
-R1(config)#logging 10.1.1.1
-R1(config)#end
-R1#'
-
-In [6]: r1.send_config_commands(['interface loop55', 'ip address 5.5.5.5 255.255.255.255'])
-Out[6]: 'conf t
-Enter configuration commands, one per line.  End with CNTL/Z.
-R1(config)#interface loop55
-R1(config-if)#ip address 5.5.5.5 255.255.255.255
-R1(config-if)#end
-R1#'
-
-"""
 import time
 import telnetlib
 import yaml

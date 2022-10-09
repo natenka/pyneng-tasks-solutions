@@ -1,19 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Задание 20.1
 
-Создать функцию generate_config.
-
-Параметры функции:
-* template - путь к файлу с шаблоном (например, "templates/for.txt")
-* data_dict - словарь со значениями, которые надо подставить в шаблон
-
-Функция должна возвращать строку с конфигурацией, которая была сгенерирована.
-
-Проверить работу функции на шаблоне templates/for.txt
-и данных из файла data_files/for.yml.
-
-"""
 import os
 from jinja2 import Environment, FileSystemLoader
 import yaml
