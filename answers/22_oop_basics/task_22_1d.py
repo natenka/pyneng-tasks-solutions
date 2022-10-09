@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 
-
 class Topology:
     def __init__(self, topology_dict):
         self.topology = self._normalize(topology_dict)
@@ -19,7 +18,7 @@ class Topology:
         elif to_port in self.topology and self.topology[to_port] == from_port:
             del self.topology[to_port]
         else:
-            print("Такого соединения нет")
+            print("There is no such link")
 
     def delete_node(self, node):
         original_size = len(self.topology)
@@ -27,13 +26,13 @@ class Topology:
             if node in src or node in dest:
                 del self.topology[src]
         if original_size == len(self.topology):
-            print("Такого устройства нет")
+            print("There is no such device")
 
     def add_link(self, src, dest):
         keys_and_values = self.topology.keys() | self.topology.values()
-        if self.topology.get(src) == dest or self.topology.get(dest) == src:
-            print("Такое соединение существует")
+        if self.topology.get(src) == dest:
+            print("Such a connection already exists")
         elif src in keys_and_values or dest in keys_and_values:
-            print("Соединение с одним из портов существует")
+            print("A link to one of the ports exists")
         else:
             self.topology[src] = dest
