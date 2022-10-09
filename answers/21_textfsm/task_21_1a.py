@@ -9,7 +9,7 @@ def parse_output_to_dict(template, command_output):
         parser = textfsm.TextFSM(tmpl)
         header = parser.header
         result = parser.ParseText(command_output)
-    return [dict(zip(header, line)) for line in result]
+    return [dict(zip(parser.header, line)) for line in result]
 
 
 if __name__ == "__main__":
@@ -19,7 +19,7 @@ if __name__ == "__main__":
     pprint(result, width=100)
 
 
-# вариант с ParseTextToDicts
+# ParseTextToDicts version
 def parse_output_to_dict(template, command_output):
     with open(template) as template:
         fsm = textfsm.TextFSM(template)

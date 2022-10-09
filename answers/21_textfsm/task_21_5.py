@@ -10,7 +10,9 @@ import yaml
 def send_and_parse_command_parallel(devices, command, templates_path, limit=3):
     with ThreadPoolExecutor(max_workers=limit) as executor:
         result_all = [
-            executor.submit(send_and_parse_show_command, device, command, templates_path)
+            executor.submit(
+                send_and_parse_show_command, device, command, templates_path
+            )
             for device in devices
         ]
         output = {device["host"]: f.result() for device, f in zip(devices, result_all)}
@@ -23,4 +25,3 @@ if __name__ == "__main__":
     command = "sh ip int br"
     path_dir = f"{os.getcwd()}/templates"
     pprint(send_and_parse_command_parallel(devices, command, path_dir))
-
