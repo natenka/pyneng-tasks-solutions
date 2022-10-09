@@ -13,10 +13,7 @@ class MyNetmiko(CiscoIosSSH):
 
     def _check_error_in_command(self, command, result):
         regex = "% (?P<err>.+)"
-        message = (
-            'При выполнении команды "{cmd}" на устройстве {device} '
-            'возникла ошибка "{error}"'
-        )
+        message = 'The "{cmd}" command was executed with the error "{error}" on the device {device}'
         error_in_cmd = re.search(regex, result)
         if error_in_cmd:
             raise ErrorInCommand(
