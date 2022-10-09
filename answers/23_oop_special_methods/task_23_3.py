@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 
-
 topology_example = {
     ("R1", "Eth0/0"): ("SW1", "Eth0/1"),
     ("R2", "Eth0/0"): ("SW1", "Eth0/2"),
@@ -19,6 +18,7 @@ topology_example2 = {
     ("R1", "Eth0/6"): ("R9", "Eth0/0"),
 }
 
+
 class Topology:
     def __init__(self, topology_dict):
         self.topology = self._normalize(topology_dict)
@@ -35,6 +35,6 @@ class Topology:
         copy_topology.update(other.topology)
         return Topology(copy_topology)
 
-    # второй вариант решения
+    # second version
     def __add__(self, other):
         return Topology({**self.topology, **other.topology})

@@ -3,6 +3,7 @@
 
 import ipaddress
 
+
 class IPAddress:
     def __init__(self, ipaddress):
         ip, mask = ipaddress.split("/")
