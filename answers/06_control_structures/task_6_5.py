@@ -7,16 +7,16 @@ random_number = randint(1, 9)
 print(random_number)
 attempts = 5
 for attempt in range(attempts):
-    num = int(input("Введите число: "))
+    num = int(input("Enter the number: "))
     if random_number == num:
-        print("Правильно!")
+        print("Correct!")
         break
     elif random_number < num:
-        print("Задуманное число меньше")
+        print("Your guess is too high")
     elif random_number > num:
-        print("Задуманное число больше")
+        print("Your guess is too low")
 else:
-	print("Число не угадано после 5 попыток")
+	print("Number not guessed after 5 tries")
 
 # второй вариант
 # from random import randint
@@ -26,14 +26,14 @@ else:
 # correct_num = False
 # attempts = 5
 # for attempt in range(attempts):
-#     num = int(input("Введите число: "))
+#     num = int(input("Enter the number: "))
 #     if random_number == num:
-#         print("Правильно!")
+#         print("Correct!")
 #         correct_num = True
 #         break
 #     elif random_number < num:
-#         print("Задуманное число меньше")
+#         print("Your guess is too high")
 #     elif random_number > num:
-#         print("Задуманное число больше")
+#         print("Your guess is too low")
 # if not correct_num:
-# 	print("Число не угадано после 5 попыток")
+# 	print("Number not guessed after 5 tries")

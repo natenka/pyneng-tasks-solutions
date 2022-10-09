@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 
-ip_address = input("Enter ip address: ")
+ip_address = input("Enter IP address: ")
 octets = ip_address.split(".")
 correct_ip = True
 
@@ -9,16 +9,12 @@ if len(octets) != 4:
     correct_ip = False
 else:
     for octet in octets:
-        # тут второе условие int(octet) in range(256)
-        # проверяется только в том случае, если первое условие истина
-        # Если встретился хоть один октет с нарушением,
-        # дальше можно не смотреть
         if not (octet.isdigit() and int(octet) in range(256)):
             correct_ip = False
             break
 
 if not correct_ip:
-    print("Неправильный IP-адрес")
+    print("Wrong IP address")
 else:
     octet0 = int(octets[0])
 
@@ -34,9 +30,9 @@ else:
         print("unused")
 
 
-# второй вариант решения
+# version 2
 
-ip = input("Введите IP-адрес в формате x.x.x.x: ")
+ip = input("Enter IP address: ")
 octets = ip.split(".")
 valid_ip = len(octets) == 4
 
@@ -55,4 +51,4 @@ if valid_ip:
     else:
         print("unused")
 else:
-    print("Неправильный IP-адрес")
+    print("Wrong IP address")

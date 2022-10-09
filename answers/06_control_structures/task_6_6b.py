@@ -2,7 +2,7 @@
 
 
 while True:
-    ip_address = input("Введите адрес: ")
+    ip_address = input("Enter IP address: ")
     octets = ip_address.split(".")
     correct_ip = True
 
@@ -15,7 +15,7 @@ while True:
             break
     if correct_ip:
         break
-    print("Неправильный IP-адрес")
+    print("Wrong IP address")
 
 first_octet = int(octets[0])
 
@@ -30,10 +30,10 @@ elif ip_address == "255.255.255.255":
 else:
     print("unused")
 
-# еще один вариант
+# version 2
 #
 # while True:
-#     ip = input("Введите IP-адрес в формате x.x.x.x: ")
+#     ip = input("Enter IP address: ")
 #     octets = ip.split(".")
 #     valid_ip = len(octets) == 4
 #
@@ -42,7 +42,7 @@ else:
 #
 #     if valid_ip:
 #         break
-#     print("Неправильный IP-адрес")
+#     print("Wrong IP address")
 #
 # if 1 <= int(octets[0]) <= 223:
 #     print("unicast")

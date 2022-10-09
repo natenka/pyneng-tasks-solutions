@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 
-ip_address = input("введите ip-адрес: ")
+ip_address = input("Enter IP address: ")
 oct1 = int(ip_address.split(".")[0])
 
 if ip_address == "255.255.255.255":
