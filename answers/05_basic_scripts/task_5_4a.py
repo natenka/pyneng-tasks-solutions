@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 
-network = input("Введите адрес сети: ")
+network = input("Enter network address: ")
 
 ip, mask = network.split()
 ip_list = ip.split(".")

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-network = input("Введите адрес хоста: ")
+network = input("Enter host address: ")
 
 ip, mask = network.split()
 ip_list = ip.split(".")
