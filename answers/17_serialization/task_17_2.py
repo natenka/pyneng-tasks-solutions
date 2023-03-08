@@ -11,11 +11,7 @@ def parse_sh_version(sh_ver_output):
         "uptime is (?P<uptime>[\w, ]+)\n.*"
         'image file is "(?P<image>\S+)".*'
     )
-    match = re.search(
-        regex,
-        sh_ver_output,
-        re.DOTALL,
-    )
+    match = re.search(regex, sh_ver_output, re.DOTALL,)
     if match:
         return match.group("ios", "image", "uptime")
 
