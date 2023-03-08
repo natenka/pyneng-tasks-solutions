@@ -6,7 +6,7 @@ with open("CAM_table.txt", "r") as conf:
     for line in conf:
         words = line.split()
         if words and words[0].isdigit():
-            vlan, mac, _, intf = words
+            vlan, mac, dyn, intf = words
             mac_table.append([int(vlan), mac, intf])
 
 for vlan, mac, intf in sorted(mac_table):

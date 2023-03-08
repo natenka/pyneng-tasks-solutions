@@ -20,12 +20,12 @@ cmd_list = ["switchport mode access", "switchport access vlan"]
 
 
 def generate_access_config(intf_vlan_dict, access_template):
-    access_dict = []
+    access_list = []
     for intf, vlan in intf_vlan_dict.items():
-        access_dict.append(f"interface {intf}")
+        access_list.append(f"interface {intf}")
         for command in access_template:
             if command.endswith("access vlan"):
-                access_dict.append(f"{command} {vlan}")
+                access_list.append(f"{command} {vlan}")
             else:
-                access_dict.append(command)
-    return access_dict
+                access_list.append(command)
+    return access_list
