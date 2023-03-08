@@ -29,8 +29,8 @@ class Topology:
             print("There is no such device")
 
     def add_link(self, src, dest):
-        keys_and_values = self.topology.keys() | self.topology.values()
-        if self.topology.get(src) == dest:
+        keys_and_values = set(self.topology.keys()) | set(self.topology.values())
+        if self.topology.get(src) == dest or self.topology.get(dest) == src:
             print("Such a connection already exists")
         elif src in keys_and_values or dest in keys_and_values:
             print("A link to one of the ports exists")
